@@ -936,7 +936,7 @@ static std::string FormatException(std::exception* pex, const char* pszThread)
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(NULL, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "foocoin";
+    const char* pszModule = "joycoin";
 #endif
     if (pex)
         return strprintf(
@@ -975,7 +975,7 @@ boost::filesystem::path GetDefaultDataDir()
     // Windows < Vista: C:\Documents and Settings\Username\Application Data\JoyCoin
     // Windows >= Vista: C:\Users\Username\AppData\Roaming\JoyCoin
     // Mac: ~/Library/Application Support/JoyCoin
-    // Unix: ~/.foocoin
+    // Unix: ~/.joycoin
 #ifdef WIN32
     // Windows
     return GetSpecialFolderPath(CSIDL_APPDATA) / "JoyCoin";
@@ -993,7 +993,7 @@ boost::filesystem::path GetDefaultDataDir()
     return pathRet / "JoyCoin";
 #else
     // Unix
-    return pathRet / ".foocoin";
+    return pathRet / ".joycoin";
 #endif
 #endif
 }
@@ -1035,7 +1035,7 @@ const boost::filesystem::path &GetDataDir(bool fNetSpecific)
 
 boost::filesystem::path GetConfigFile()
 {
-    boost::filesystem::path pathConfigFile(GetArg("-conf", "foocoin.conf"));
+    boost::filesystem::path pathConfigFile(GetArg("-conf", "joycoin.conf"));
     if (!pathConfigFile.is_complete()) pathConfigFile = GetDataDir(false) / pathConfigFile;
     return pathConfigFile;
 }
@@ -1045,14 +1045,14 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 {
     boost::filesystem::ifstream streamConfig(GetConfigFile());
     if (!streamConfig.good())
-        return; // No foocoin.conf file is OK
+        return; // No joycoin.conf file is OK
 
     set<string> setOptions;
     setOptions.insert("*");
 
     for (boost::program_options::detail::config_file_iterator it(streamConfig, setOptions), end; it != end; ++it)
     {
-        // Don't overwrite existing settings so command line settings override foocoin.conf
+        // Don't overwrite existing settings so command line settings override joycoin.conf
         string strKey = string("-") + it->string_key;
         if (mapSettingsRet.count(strKey) == 0)
         {
@@ -1066,7 +1066,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 
 boost::filesystem::path GetPidFile()
 {
-    boost::filesystem::path pathPidFile(GetArg("-pid", "foocoin.pid"));
+    boost::filesystem::path pathPidFile(GetArg("-pid", "joycoin.pid"));
     if (!pathPidFile.is_complete()) pathPidFile = GetDataDir() / pathPidFile;
     return pathPidFile;
 }
