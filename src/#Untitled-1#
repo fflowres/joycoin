@@ -1,0 +1,9 @@
+nonce 000B7000: hash = e37c42bd364d7f468754bb89978afbcc06ea4e6763d2bf2831eef43b28321b1a (target = 00000ffff0000000000000000000000000000000000000000000000000000000)
+block.nTime = 1300000000 
+block.nNonce = 749945 
+block.GetHash = 63aaddb4f757b5fd976a53df37bc6be1656202cacf6bae2d3e5d5fb9895c8053
+CBlock(hash=63aaddb4f757b5fd976a, PoW=00000d142cb65d24734c, ver=1, hashPrevBlock=00000000000000000000, hashMerkleRoot=35fb55bbe6, nTime=1300000000, nBits=1e0ffff0, nNonce=749945, vtx=1)
+  CTransaction(hash=35fb55bbe6, ver=1, vin.size=1, vout.size=1, nLockTime=0)
+    CTxIn(COutPoint(0000000000, -1), coinbase 04ffff001d0104135265616c206675636b65642075702074696d65)
+    CTxOut(error)
+  vMerkleTree: 35fb55bbe6
